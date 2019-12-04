@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Todo</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <div id="wrapper">
+        <h1> TODO List</h1>
+        <p>Add New Task</p> 
+        <input type="text" id="sectionText" class="sectionText" placeholder="Title" />
+        <label for="due-date">Due Date</label>
+        <input type="datetime-local" name="Due Date" id="due-date">
+        <select id="label">
+            <option value="easy">Easy</option>
+            <option value="diff">Difficult</option>
+            <option value="hard">Hard</option>
+        </select>
+        <button id="btn" class="btn">New Task</button>
+        <hr />
+        <div id="pendingArea">
+            <p>Pending tasks</p>
+        </div>
+        <hr />
+        <div id="completedArea">
+            <P>Completed Tasks</P>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
