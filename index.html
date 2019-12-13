@@ -1,37 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" integrity="sha256-QVBN0oT74UhpCtEo4Ko+k3sNo+ykJFBBtGduw13V9vw=" crossorigin="anonymous" />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Todo</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <div id="wrapper">
-        <h1> TODO List</h1>
-        <p>Add New Task</p> 
-        <input type="text" id="sectionText" class="sectionText" placeholder="Title" />
-        <label for="due-date">Due Date</label>
-        <input type="datetime-local" name="Due Date" id="due-date">
-        <select id="label">
-            <option value="easy">Easy</option>
-            <option value="diff">Difficult</option>
-            <option value="hard">Hard</option>
-        </select>
-        <button id="btn" class="btn">New Task</button>
-        <hr />
-        <div id="pendingArea">
-            <p>Pending tasks</p>
+    <div id="wrapper" class="ui main container">
+      <h1 class="ui header blue">TODO</h1>
+      <div class="ui grid">
+        <div class="two column row">
+          <div class="left floated column">
+              <button onclick="showNewTaskForm()" class="ui button">New Task</button>
+          </div>
+          <div class="right floated column" style="text-align: right;">
+              <div class="ui icon input">
+                <input id="search-bar" type="search" placeholder="Search" />
+                <i class="search icon"></i>
+              </div>
+              <button class="ui button" onclick="searchByTitle()">search</button>
+          </div>
         </div>
-        <hr />
-        <div id="completedArea">
-            <P>Completed Tasks</P>
+      </div>
+      <div class="ui container">
+        
+      </div>
+      <hr />
+      <div class="ui segment">
+        <div class="ui two column grid">
+          <div class="row">
+            <div class="column">
+                <div id="pendingArea" class="ui list">
+                    <h4 class="ui header red">Pending Todos</h4>
+                  </div>
+            </div>
+            <div class="column">
+                <div id="completedArea">
+                    <h4 class="ui header green">Completed Todos</h4>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui divider vertical"><i class="random icon"></i></div>
+      </div>
+    </div>
+    <div id="new-task-form" class="ui modal">
+        <div class="header">New Task</div>
+        <div class="content">
+            <form class="ui form">
+              <div class="field">
+                <label>Title</label>
+                <div class="ui left icon input">
+                    <i class="heading icon"></i>
+                    <input
+                      type="text"
+                      id="sectionText"
+                      class="sectionText"
+                      placeholder="Title"
+                    />
+                </div>
+              </div>
+              <div class="two fields">
+                <div class="field">
+                    <label>Due date</label>
+                    <div class="ui icon input">
+                        <i class="calendar icon"></i>
+                        <input type="date" name="Due Date" id="due-date" />
+                    </div>
+                </div>
+                <div class="field">
+                  <label>Difficulty</label>
+                  <select id="label" class="ui dropdown">
+                      <option value="easy">Easy</option>
+                      <option value="diff">Difficult</option>
+                      <option value="hard">Hard</option>
+                  </select>
+                </div>
+              </div>
+              <button id="btn" class="ui button primary">New Task</button>
+            </form>
         </div>
     </div>
     <script src="./js/script.js"></script>
-</body>
+  </body>
 </html>
